@@ -1,6 +1,6 @@
 resource "aws_iam_role" "datadog" {
   name = "DataDogIntegration"
-  
+
   assume_role_policy = <<EOF
 {
   "Version": "2012-10-17",
@@ -23,7 +23,7 @@ EOF
 }
 
 resource "aws_iam_policy" "datadog" {
-  name = "DataDogIntegration"
+  name        = "DataDogIntegration"
   description = "Access for DataDog to the AWS API"
 
   policy = <<EOF
@@ -102,7 +102,7 @@ EOF
 }
 
 resource "aws_iam_policy_attachment" "attach_datadog_policy" {
-    name       = "DataDog_integration_role_policy"
-    roles      = ["${aws_iam_role.datadog.name}"]
-    policy_arn = "${aws_iam_policy.datadog.arn}"
+  name       = "DataDog_integration_role_policy"
+  roles      = ["${aws_iam_role.datadog.name}"]
+  policy_arn = "${aws_iam_policy.datadog.arn}"
 }
