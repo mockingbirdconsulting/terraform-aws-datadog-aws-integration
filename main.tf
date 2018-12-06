@@ -13,7 +13,7 @@ resource "aws_iam_role" "datadog" {
       "Action": "sts:AssumeRole",
       "Condition": {
         "StringEquals": {
-          "sts:ExternalId": "${var.dd_aws_external_id}"
+          "sts:ExternalId": "${var.datadog_aws_external_id}"
         }
       }
     }
