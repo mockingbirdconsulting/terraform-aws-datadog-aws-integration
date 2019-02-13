@@ -132,7 +132,9 @@ resource "aws_s3_bucket_policy" "datadog_log_read_cloudtrail" {
         {
             "Effect": "Allow",
             "Principal": {"Service": "cloudtrail.amazonaws.com"},
-            "Action": "s3:GetBucketAcl",
+            "Action": [
+                "s3:GetBucketAcl"
+            ],
             "Resource": "arn:aws:s3:::${var.log_bucket_name}"
         },
         {
